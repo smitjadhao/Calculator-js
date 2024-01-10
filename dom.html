@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>
+    Are you Subscribe ! 
+    </h1>
+    <title>Document</title>
+</head>
+<body>
+    <button class="js-button"onclick=clickButton()>Subscribe</button>
+
+    
+     <h1>
+      Amazon Shipping Calculator!
+     </h1> 
+     <P>
+      Order under $40 = +10 Shipping
+     </P> 
+    <p>
+      Order above $40 = Free Shipping
+   
+    <input placeholder="Cost of Order" class="js-input-text" onkeydown="handleKey()"> <button onclick="calculateTotal()" class="cal-btn"> Calculate </button>
+  </p> 
+  <P class="js-input-cost"> 
+  </P>
+    
+
+    <script>
+  function handleKey(){
+  if(event.key === 'Enter'){
+    calculateTotal();
+  }
+      
+  }
+   
+   function calculateTotal(){
+  let result ='';
+  const inputElement =  document.querySelector('.js-input-text')
+  const cost = Number(inputElement.value);
+  if(cost<=40){
+   result = cost + 10
+  }
+  else if (cost>=40){
+   result = cost;
+  }
+   document.querySelector('.js-input-cost')
+   .innerHTML = `Total cost will be $${result}`
+   }
+
+
+ 
+
+
+    function clickButton(){
+      let result = '';
+      const ButtonElement = document.querySelector('.js-button')
+      ButtonElement.classList.add('is-subscribe');
+      if(ButtonElement.innerText === 'Subscribe'){
+         result = ButtonElement.innerHTML ='Subscribed'
+      }
+      else{
+        result=ButtonElement.innerHTML = 'Subscribe';
+        ButtonElement.classList.remove('is-subscribe')
+      }
+          
+      }
+      
+    
+    
+
+    </script>
+    <style>
+     .js-button{
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 90px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+     }
+
+     .is-subscribe{
+    background-color:rgb(240,240,240);
+    color: black;
+
+     }
+
+
+      .cal-btn{
+        background-color: rgb(5, 133, 5);
+        height: 40px;
+        width: 100px;
+        border: none;
+         font-size:medium;
+         font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-weight: lighter;
+        cursor: pointer;
+
+      }
+       .js-input-text{
+       height: 35px;
+       width: 150px;
+    
+
+      }
+    </style>
+</body>
+</html>
